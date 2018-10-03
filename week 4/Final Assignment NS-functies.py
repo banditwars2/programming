@@ -7,16 +7,19 @@ def standaardprijs (afstandKM):
     elif afstandKM <= 0:
         return 0
 
+print(standaardprijs(50)) #<-geef hier je afstand en dit word dan berekent
+
 def ritprijs(leeftijd, weekendrit, afstandKM):
     'berekent de korting'
-    if weekendrit == True and (leeftijd >=65 or leeftijd <= 12):
+    if weekendrit  and (leeftijd >=65 or leeftijd <= 12):
         return float(standaardprijs(afstandKM)) *0.65
-    elif weekendrit == True and (leeftijd <65 or leeftijd > 12):
+    elif weekendrit and (leeftijd <65 or leeftijd > 12):
         return float(standaardprijs(afstandKM)) * 0.60
-    elif weekendrit == False and (leeftijd >=65 or leeftijd <= 12):
+    elif not weekendrit and (leeftijd >=65 or leeftijd <= 12):
         return standaardprijs(afstandKM) * 0.7
     else:
         return standaardprijs(afstandKM)
 
-print(standaardprijs(50))
-print(ritprijs(12, True, 50))
+print(ritprijs(21, False, 10))
+#Je geeft je leeftijd aan, of je op een weekendrit rijdt, en de afstand die je legt
+#als je geen weekendrit heb dan gaat berekend hij alleen puur de afstandKM
